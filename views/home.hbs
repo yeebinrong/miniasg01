@@ -1,0 +1,37 @@
+{{#if state}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <span class="justify-content-center"><h2>Showing you top headlines from {{country}}.</h2><img src="/images/{{country}}.png" class="thumbnail ml-3" alt=""></span>
+                
+                <p>You have searched for news about {{search}} in {{country}} related to {{category}}.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {{!-- // title
+                // description
+                // urlToImage
+                // publishedAt 
+                // url --}}
+        {{#if articles}} 
+            {{#each articles}}
+                <div class="container row bg-primary">
+                    <a href="{{url}}" class="btn btn-outline-light mt-3">
+                        <h3>{{title}}</h3>
+                        <h6>{{description}}</h6>
+                        {{#if urlToImage}}
+                            <img src="{{urlToImage}}" alt="">
+                        {{else}}
+                            <img src="/images/{{default}}.png" alt="">
+                        {{/if}}
+                        <p>{{publishedAt}}</p>
+                    </a>
+                </div>
+            {{/each}}
+        {{else}}
+            <h3>You have returned no results!</h3>
+            <img src="/images/404.png" alt="">
+        {{/if}}
+    </div>
+{{/if}}

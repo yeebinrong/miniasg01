@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Showing you top headlines from {{country}}.</h2>
+    <p>You have searched for news about {{search}} in {{country}} related to {{category}}.</p>
+</div>
+<div class="container">
+      {{!-- // title
+            // description
+            // urlToImage
+            // publishedAt 
+            // url --}}
+    {{#if articles}} 
+        {{#each articles}}
+            <div class="container row">
+                <a href="{{url}}">
+                    <h3>{{title}}</h3>
+                    <h6>{{description}}</h6>
+                </a>
+                    {{#if urlToImage}}
+                        <img src="{{urlToImage}}" alt="">
+                    {{else}}
+                        <img src="/images/{{default}}.png" alt="">
+                    {{/if}}
+                    <p>{{publishedAt}}</p>
+            </div>
+        {{/each}}
+    {{else}}
+        <h3>You have returned no results!</h3>
+    {{/if}}
+</div>
